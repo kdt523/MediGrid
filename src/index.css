@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #0A0E1A;
+  --surface-color: #111827;
+  --border-color: #1F2937;
+  --primary-color: #06B6D4;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: #F9FAFB;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer base {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold tracking-tight text-white;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+.medi-grid-bg {
+  background-image: radial-gradient(#1F2937 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+}
+
+.glass-card {
+  @apply bg-[#111827]/80 backdrop-blur-md border border-[#1F2937];
+}
+
+.glass-card:hover {
+  @apply border-[#06B6D4]/30 shadow-cyan-glow-light;
+  transform: scale(1.005);
+  transition: all 0.2s ease-in-out;
+}
+
+.cyan-glow {
+  @apply shadow-cyan-glow;
+}
+
+.active-nav-item {
+  @apply text-[#06B6D4] bg-[#06B6D4]/10 border-l-4 border-[#06B6D4];
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pulse-dot {
+  @apply rounded-full;
+}
+
+.pulse-dot.danger {
+  @apply bg-red-500 shadow-danger-glow;
+  animation: pulse-red 2s infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
